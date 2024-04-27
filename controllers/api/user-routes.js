@@ -32,6 +32,7 @@ router.post('/sign-up', async (req,res) => {
   router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
+      console.log(userData.password + "this is the console loggggggggggggggggggggg");
 
       
   
@@ -40,9 +41,8 @@ router.post('/sign-up', async (req,res) => {
         return;
       }
   
-      const isValidPassword = await userData.checkPassword(req.body.password);
 
-      if (!isValidPassword) {
+      if (!(userData.password == req.body.password)) {
         res.status(400).json({ message: 'Incorrect password!' });
         return;
       }
@@ -51,6 +51,7 @@ router.post('/sign-up', async (req,res) => {
   
       req.session.save(() => {
         req.session.logged_in = true;
+        req.session.user_id = userData.id;
         req.session.username = userData.username;
         res.status(200).json({ user: userData, message: 'You are now logged in!' });
       });
