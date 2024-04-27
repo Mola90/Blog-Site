@@ -4,7 +4,7 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-//const helpers = require('./utils/helpers');
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,6 +24,16 @@ const sess = {
   };
 
 app.use(session(sess));
+app.use(cookieParser());
+
+app.use((req, res, next) => {
+  if (req.cookies.logged_in === "true") { 
+      res.locals.logged_in = true;
+  } else {
+      res.locals.logged_in = false;
+  }
+  next();
+});
 
 
 
@@ -37,6 +47,8 @@ app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 app.use(routes);
 

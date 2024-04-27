@@ -6,9 +6,9 @@ router.post('/sign-up', async (req,res) => {
 
     try { 
         
-    
+      
         
-        const dbUserData = await User.create({
+        const dbUserData = await User.create({          
           username: req.body.username,
           email: req.body.email,
           password: req.body.password,
@@ -20,6 +20,7 @@ router.post('/sign-up', async (req,res) => {
         req.session.user_id = dbUserData.id;
   
         res.status(200).json(dbUserData);
+        console.log(res);
         console.log("Person has been createddddddddddddddddddddddddddddddddd");
       });
     } catch (err) {
