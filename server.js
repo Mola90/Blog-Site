@@ -7,7 +7,7 @@ const routes = require('./controllers');
 const cookieParser = require('cookie-parser');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 const sequelize = require('./config/connection');
 
