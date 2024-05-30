@@ -1,6 +1,6 @@
 # Tech Blog
 
-This application demonstrates a Tech Blog, designed to facilitate the creation and management of a CMS-style blog site. Using Express.js, Handlebars.js, and Sequelize, this app enables developers to publish articles, blog posts, and comments. This comprehensive blogging solution ensures that developers can share their thoughts, opinions, and technical insights effectively, fostering a collaborative and informative community.
+This application demonstrates a Tech Blog, designed to facilitate the creation and management of a CMS-style blog site. Using Express.js, Handlebars.js, and Sequelize, this app enables developers to publish articles, blog posts, and comments. This comprehensive blogging solution ensures that developers can share their thoughts, opinions, and technical insights effectively, fostering a collaborative and informative community. In the backend, this site uses industry standard MVC formatting and technologies such as Node.js, express handlebars, MYsql2, sequelize and express sessions.
 
 ## Table of Contents
 
